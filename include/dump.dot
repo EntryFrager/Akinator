@@ -1,0 +1,22 @@
+digraph List {
+	rankdir = HR;
+	bgcolor = "#696969";
+	node0 [shape = Mrecord, style = filled, fillcolor = "#ff0000", label = "{idx: 011ED080 | value: yellow | left: 011ED050 | right: 011ECFD8 | parent: 00000000}"];
+	node1 [shape = Mrecord, style = filled, fillcolor = "#00BFFF", label = "{idx: 011ED050 | value: worn on a belt | left: 011ECFF0 | right: 011ED098 | parent: 00000000}"];
+	node0 -> node1 [color = "#00BFFF"]
+	node2 [shape = Mrecord, style = filled, fillcolor = "#00BFFF", label = "{idx: 011ECFF0 | value: judo belt | left: 00000000 | right: 00000000 | parent: 00000000}"];
+	node1 -> node2 [color = "#00BFFF"]
+	node3 [shape = Mrecord, style = filled, fillcolor = "#ccff99", label = "{idx: 011ED098 | value: sun | left: 00000000 | right: 00000000 | parent: 00000000}"];
+	node1 -> node3 [color = "#ccff99"]
+	node4 [shape = Mrecord, style = filled, fillcolor = "#ccff99", label = "{idx: 011ECFD8 | value: life | left: 011ECF90 | right: 011ED0B0 | parent: 00000000}"];
+	node0 -> node4 [color = "#ccff99"]
+	node5 [shape = Mrecord, style = filled, fillcolor = "#00BFFF", label = "{idx: 011ECF90 | value: grey | left: 011ED008 | right: 011ED0C8 | parent: 00000000}"];
+	node4 -> node5 [color = "#00BFFF"]
+	node6 [shape = Mrecord, style = filled, fillcolor = "#00BFFF", label = "{idx: 011ED008 | value: mouse | left: 00000000 | right: 00000000 | parent: 00000000}"];
+	node5 -> node6 [color = "#00BFFF"]
+	node7 [shape = Mrecord, style = filled, fillcolor = "#ccff99", label = "{idx: 011ED0C8 | value: frog | left: 00000000 | right: 00000000 | parent: 00000000}"];
+	node5 -> node7 [color = "#ccff99"]
+	node8 [shape = Mrecord, style = filled, fillcolor = "#ccff99", label = "{idx: 011ED0B0 | value: grass | left: 00000000 | right: 00000000 | parent: 00000000}"];
+	node4 -> node8 [color = "#ccff99"]
+	label = "tree_dump from function main, Tree/main.cpp:10";}
+
