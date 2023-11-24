@@ -19,7 +19,7 @@ int create_tree (TREE *tree, const char *value)
     tree->info.fp_name_base = "include/tree.txt";
 
 #ifdef DEBUG
-    tree->info.fp_dump_text_name = "include/file_err.txt";
+    tree->info.fp_dump_text_name = "include/file_err_tree.txt";
     tree->info.fp_dot_name       = "include/dump.dot";
     tree->info.fp_name_html      = "include/dot.html";
     tree->info.fp_image          = "include/dot.svg";
@@ -151,10 +151,8 @@ int add_node (NODE *node, const char *value, const bool side)
     return ERR_NO;
 }
 
-int delete_node (TREE *tree, NODE *node)
+int delete_node (NODE *node)
 {
-    assert_tree (tree);
-
     if (!node)
     {
         return ERR_NO;
@@ -172,14 +170,12 @@ int delete_node (TREE *tree, NODE *node)
         }
     }
 
-    CHECK_ERROR_RETURN (delete_node (tree, node->left));
+    CHECK_ERROR_RETURN (delete_node (node->left));
     
-    CHECK_ERROR_RETURN (delete_node (tree, node->right));
+    CHECK_ERROR_RETURN (delete_node (node->right));
 
     free (node);
     node = NULL;
-
-    assert_tree (tree);
     
     return ERR_NO;
 }
@@ -211,7 +207,7 @@ int print_tree (TREE *tree, NODE *node, FILE *stream)
 
 int destroy_tree (TREE *tree)
 {
-    CHECK_ERROR_RETURN (delete_node (tree, tree->root));
+    CHECK_ERROR_RETURN (delete_node (tree->root));
     tree->root = NULL;
 
     tree->init_status = false;

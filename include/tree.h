@@ -28,14 +28,9 @@
             return CODE_ERROR;                                                                  \
         }                                                                                       \
     }
-
-    #define CHECK_ERROR_PRINT(code_error)  if (code_error != ERR_NO) fprintf (stderr, "\x1b[31m%s\x1b[0m", my_strerr (code_error, stderr));
-    #define CHECK_ERROR_RETURN(code_error) if (code_error != ERR_NO) return code_error;
 #else
     #define CALL_DUMP(...)
     #define assert_tree(...)
-    #define CHECK_ERROR_PRINT(...)
-    #define CHECK_ERROR_RETURN(...)
 #endif
 
 const bool LEFT  = false;
@@ -86,7 +81,7 @@ NODE *split_node (TREE *tree, NODE *node);
 
 int add_node (NODE *node, const char *value, const bool side);
 
-int delete_node (TREE *tree, NODE *node);
+int delete_node (NODE *node);
 
 int print_tree (TREE *tree, NODE *node, FILE *stream);
 

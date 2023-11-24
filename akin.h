@@ -10,22 +10,21 @@
 #include "include/error.h"
 #include "include/utils.h"
 
-const bool VALUE_FIND = true;
-const bool VALUE_NOT_FIND = false;
+const bool OBJECT_FIND = true;
+const bool OBJECT_NOT_FIND = false;
 
 const ELEMENT YES = 1;
 const ELEMENT NO = 0;
 
+const size_t STR_SIZE = 100;
 const size_t STACK_SIZE = 10;
 
 int game_run (TREE *tree);
 
-int guess_words (NODE *node);
+int guess_object (NODE *node);
 
-void add_objects (NODE *node);
+int give_determ (NODE *node);
 
-void give_determ (NODE *node);
-
-bool find_value (NODE *node, char *search_value, STACK *sstack);
+int compare_object (NODE *node);
 
 #endif //AKIN_H

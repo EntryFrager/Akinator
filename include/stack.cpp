@@ -27,7 +27,7 @@ static const char *err_msgs_arr[] = {                                           
     "ERROR: error when allocating memory in stack_realloc.\n"
 };
 
-static const char *fp_err_name = "file_err.txt";                                                                        ///< Variable storing the file name for error output.
+static const char *fp_err_name = "include/file_err_stack.txt";                                                              ///< Variable storing the file name for error output.
 
 static const int UP = 1;
 static const int DOWN = 2;
@@ -115,7 +115,7 @@ void stack_push (STACK *stk, const ELEMENT value)
 
         my_assert (code_error != ERR_STACK_REALLOC);
     }
-
+    
     stk->data[stk->position++] = value;
 
     ON_DEBUG (stk->hash_data   = hash_control_data   (stk),

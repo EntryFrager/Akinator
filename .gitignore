@@ -1,9 +1,6 @@
 
 *.json
-*.json
-*.json
-akin.exe.log
 *.exe
+*.log
 *.dmp
 *.o
-utils.o
