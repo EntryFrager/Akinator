@@ -11,10 +11,10 @@
  * @param[in] expr Expression
 */
 
-//#define DEBUG
+#define DEBUG
 
 #ifdef DEBUG
-    #define CHECK_ERROR_PRINT(func) if ((code_error = func) != ERR_NO) fprintf (stderr, "\x1b[31m%s\x1b[0m", my_strerr (code_error, stderr));
+    #define CHECK_ERROR_PRINT(func) if ((code_error = func) != ERR_NO) my_strerr (code_error, stderr);
     #define CHECK_ERROR_RETURN(func) if ((code_error = func) != ERR_NO) return code_error;
 #else
     #define CHECK_ERROR_PRINT(func) func

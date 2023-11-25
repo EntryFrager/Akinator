@@ -1,6 +1,6 @@
 #include "akin.h"
 
-static int guess_object (NODE *node);
+static void guess_object (NODE *node);
 static int give_determ (NODE *node);
 static void compare_object (NODE *node);
 static void print_database (TREE *tree);
@@ -10,6 +10,7 @@ static NODE *print_part_determ (NODE *node, STACK *stack);
 static bool find_object (NODE *node, char *search_objects, STACK *stack);
 static int check_new_objects (NODE *node);
 static void add_objects (NODE *node);
+static char *create_str (size_t size);
 static void check_answer (char *answer);
 
 int game_run ()
@@ -20,6 +21,7 @@ int game_run ()
     input_base (&tree);
 
     int mode = 0;
+    int code_error = 0;
 
     while (true)
     {
@@ -38,12 +40,12 @@ int game_run ()
         {
             case (1):
             {
-                CHECK_ERROR_RETURN (guess_object (tree.root));
+                guess_object (tree.root);
                 break;
             }
             case (2):
             {
-                CHECK_ERROR_RETURN (give_determ (tree.root));
+                give_determ (tree.root);
                 break;
             }
             case (3):
@@ -83,7 +85,7 @@ int game_run ()
     return ERR_NO;
 }
 
-int guess_object (NODE *node)
+void guess_object (NODE *node)
 {
     printf ("Is it %s? ", node->value);
 
@@ -116,8 +118,6 @@ int guess_object (NODE *node)
             guess_object (node->right);
         }
     }
-
-    return ERR_NO;
 }
 
 int give_determ (NODE *node)
@@ -311,6 +311,14 @@ void print_database (TREE *tree)
 {
     tree_dump_graph_viz (tree, __FILE__, __func__, __LINE__);
     system ("dot.svg");
+}
+
+char *create_str (size_t size)
+{
+    char *str = (char *) calloc (size, sizeof (char));
+    my_assert (str != NULL);
+
+    return str;
 }
 
 void check_answer (char *answer)

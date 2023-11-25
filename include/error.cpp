@@ -25,7 +25,7 @@ void my_strerr (unsigned code_error, FILE *stream)
     {
         if (code_error & (1 << i))
         {
-            fprintf (stream, "ERROR: %s\n", err_msgs_arr[i]);
+            fprintf (stream, "\x1b[31mERROR: %s\x1b[0m\n", err_msgs_arr[i]);
         }
     }
 }
