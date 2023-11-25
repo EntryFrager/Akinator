@@ -15,23 +15,22 @@
 //#define HASH_CHECK                                                                                                      ///< Macro to enable hashed protection.
 
 #ifdef HASH_CHECK
-    #define ON_DEBUG(...)                                               \
+    #define ON_DEBUG(...)                                                       \
     __VA_ARGS__
 #else
     #define ON_DEBUG(...)
 #endif
 
-static int STACK_CODE_ERROR = 0;                                                                                        ///< Variable for error codes.
-
 #define assert_stack(stack) {                                                   \
-    if ((STACK_CODE_ERROR = stack_verification (stack)) != STACK_OK)            \
+    int stack_code_error = 0;                                                   \
+    if ((stack_code_error = stack_verification (stack)) != STACK_OK)            \
     {                                                                           \
-        stack_dump (stack, STACK_CODE_ERROR, __FILE__, __func__, __LINE__);     \
+        stack_dump (stack, stack_code_error, __FILE__, __func__, __LINE__);     \
         abort ();                                                               \
     }                                                                           \
 }
 
-typedef double ELEMENT;                                                                                                 ///< The type of stack elements.
+typedef int ELEMENT;                                                                                                    ///< The type of stack elements.
 
 const ELEMENT STACK_VALUE_VENOM = -100000;                                                                              ///< Variable containing poison
 

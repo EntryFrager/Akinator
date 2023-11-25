@@ -19,12 +19,6 @@ const ELEMENT NO = 0;
 const size_t STR_SIZE = 100;
 const size_t STACK_SIZE = 10;
 
-int game_run (TREE *tree);
-
-int guess_object (NODE *node);
-
-int give_determ (NODE *node);
-
-int compare_object (NODE *node);
+int game_run ();
 
 #endif //AKIN_H

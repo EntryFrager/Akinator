@@ -6,16 +6,13 @@
  * Types of errors.
 */
 
+#define DEF_ERR(name) name,
+
 static const char *err_msgs_arr[] = {
-    "an error occurred while opening the file",
-    "an error occurred while closing the file",
-    "an error occurred while reading text from the file",
-    "pointer to tree structure null",
-    "the tree was not initialized",
-    "wrong tree size",
-    "invalid pointer to tree root",
-    "communication between nodes is broken"
+    #include "error_name.h"
 };
+
+#undef DEF_ERR
 
 /**
  * Error print function.

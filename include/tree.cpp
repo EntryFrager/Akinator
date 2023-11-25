@@ -14,7 +14,7 @@ int create_tree (TREE *tree, const char *value)
 
     tree->root = create_node (value, NULL, NULL, NULL);
 
-    tree->init_status = true;
+    tree->init_status = INIT;
 
     tree->info.fp_name_base = "include/tree.txt";
 
@@ -22,7 +22,7 @@ int create_tree (TREE *tree, const char *value)
     tree->info.fp_dump_text_name = "include/file_err_tree.txt";
     tree->info.fp_dot_name       = "include/dump.dot";
     tree->info.fp_name_html      = "include/dot.html";
-    tree->info.fp_image          = "include/dot.svg";
+    tree->info.fp_image          = "dot.svg";
 
     tree->info.fp_html_dot = fopen (tree->info.fp_name_html, "w+");
 
@@ -136,6 +136,7 @@ NODE *split_node (TREE *tree, NODE *node)
 int add_node (NODE *node, const char *value, const bool side)
 {
     my_assert (node != NULL);
+    my_assert (value != NULL);
 
     if (side == LEFT)
     {
@@ -175,15 +176,13 @@ int delete_node (NODE *node)
     CHECK_ERROR_RETURN (delete_node (node->right));
 
     free (node);
-    node = NULL;
     
     return ERR_NO;
 }
 
-int print_tree (TREE *tree, NODE *node, FILE *stream)
+int print_tree (NODE *node, FILE *stream)
 {
     my_assert (stream != NULL);
-    assert_tree (tree);
 
     if (!node)
     {
@@ -195,12 +194,10 @@ int print_tree (TREE *tree, NODE *node, FILE *stream)
 
     fprintf (stream, "\"%s\" ", node->value);
 
-    print_tree (tree, node->left, stream);
-    print_tree (tree, node->right, stream);
+    print_tree (node->left, stream);
+    print_tree (node->right, stream);
 
     fprintf (stream, ")");
-
-    assert_tree (tree);
 
     return ERR_NO;
 }
@@ -210,7 +207,7 @@ int destroy_tree (TREE *tree)
     CHECK_ERROR_RETURN (delete_node (tree->root));
     tree->root = NULL;
 
-    tree->init_status = false;
+    tree->init_status = INIT_NOT;
 
     tree->info.fp_name_base = NULL;
 
@@ -245,7 +242,7 @@ int tree_verificator (TREE *tree)
 
     VERIF_EXPR (tree != NULL, TREE_ERR_PTR)
 
-    VERIF_EXPR (tree->init_status == true, TREE_INIT)
+    VERIF_EXPR (tree->init_status == INIT, TREE_INIT)
 
     VERIF_EXPR (tree->root != NULL, TREE_ERR_ROOT_PTR)
 
@@ -378,7 +375,7 @@ void tree_dump_graph_viz (TREE *tree, const char *file_err,
         my_strerr (ERR_FCLOSE, stderr);
     }
 
-    char *command = "dot -Tsvg include/dump.dot -o include/dot.svg";
+    char *command = "dot -Tsvg include/dump.dot -o dot.svg";
 
     system (command);
 
@@ -395,7 +392,8 @@ int create_node (NODE *node, FILE *stream, int ip_parent, int ip, char *color)
         return ip - 1;
     }
 
-    fprintf (stream, "\tnode%d [shape = Mrecord, style = filled, fillcolor = %s, label = \"{idx: %p | value: %s | left: %p | right: %p | parent: %p}\"];\n",
+    fprintf (stream, "\tnode%d [shape = Mrecord, style = filled, fillcolor = %s, "
+             "label = \"{idx: %p | value: %s | left: %p | right: %p | parent: %p}\"];\n",
              ip, color, node, node->value, node->left, node->right, node->parent);
 
     if (ip > 0)
@@ -432,6 +430,8 @@ void tree_dump_html (TREE *tree)
     {
         my_strerr (ERR_FCLOSE, stderr);
     }
+
+    free (data_dot);
 }
 
 #endif

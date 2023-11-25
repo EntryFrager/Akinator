@@ -1,22 +1,42 @@
 digraph List {
 	rankdir = HR;
 	bgcolor = "#696969";
-	node0 [shape = Mrecord, style = filled, fillcolor = "#ff0000", label = "{idx: 0118D128 | value: yellow | left: 0118CF90 | right: 0118CFD8 | parent: 00000000}"];
-	node1 [shape = Mrecord, style = filled, fillcolor = "#00BFFF", label = "{idx: 0118CF90 | value: worn on a belt | left: 0118D0B0 | right: 0118CFA8 | parent: 00000000}"];
+	node0 [shape = Mrecord, style = filled, fillcolor = "#ff0000", label = "{idx: 0002D198 | value: yellow | left: 0002CFD0 | right: 0002CFE8 | parent: 00000000}"];
+	node1 [shape = Mrecord, style = filled, fillcolor = "#00BFFF", label = "{idx: 0002CFD0 | value: worn on a belt | left: 0002D138 | right: 0002D090 | parent: 00000000}"];
 	node0 -> node1 [color = "#00BFFF"]
-	node2 [shape = Mrecord, style = filled, fillcolor = "#00BFFF", label = "{idx: 0118D0B0 | value: judo belt | left: 00000000 | right: 00000000 | parent: 00000000}"];
+	node2 [shape = Mrecord, style = filled, fillcolor = "#00BFFF", label = "{idx: 0002D138 | value: judo belt | left: 00000000 | right: 00000000 | parent: 00000000}"];
 	node1 -> node2 [color = "#00BFFF"]
-	node3 [shape = Mrecord, style = filled, fillcolor = "#ccff99", label = "{idx: 0118CFA8 | value: sun | left: 00000000 | right: 00000000 | parent: 00000000}"];
+	node3 [shape = Mrecord, style = filled, fillcolor = "#ccff99", label = "{idx: 0002D090 | value: sun | left: 00000000 | right: 00000000 | parent: 00000000}"];
 	node1 -> node3 [color = "#ccff99"]
-	node4 [shape = Mrecord, style = filled, fillcolor = "#ccff99", label = "{idx: 0118CFD8 | value: life | left: 0118CFC0 | right: 0118D020 | parent: 00000000}"];
+	node4 [shape = Mrecord, style = filled, fillcolor = "#ccff99", label = "{idx: 0002CFE8 | value: alive | left: 0002D0D8 | right: 0002D018 | parent: 00000000}"];
 	node0 -> node4 [color = "#ccff99"]
-	node5 [shape = Mrecord, style = filled, fillcolor = "#00BFFF", label = "{idx: 0118CFC0 | value: grey | left: 0118CFF0 | right: 0118D008 | parent: 00000000}"];
+	node5 [shape = Mrecord, style = filled, fillcolor = "#00BFFF", label = "{idx: 0002D0D8 | value: grey | left: 0002D0C0 | right: 0002D030 | parent: 00000000}"];
 	node4 -> node5 [color = "#00BFFF"]
-	node6 [shape = Mrecord, style = filled, fillcolor = "#00BFFF", label = "{idx: 0118CFF0 | value: mouse | left: 00000000 | right: 00000000 | parent: 00000000}"];
+	node6 [shape = Mrecord, style = filled, fillcolor = "#00BFFF", label = "{idx: 0002D0C0 | value: mouse | left: 00000000 | right: 00000000 | parent: 00000000}"];
 	node5 -> node6 [color = "#00BFFF"]
-	node7 [shape = Mrecord, style = filled, fillcolor = "#ccff99", label = "{idx: 0118D008 | value: frog | left: 00000000 | right: 00000000 | parent: 00000000}"];
+	node7 [shape = Mrecord, style = filled, fillcolor = "#ccff99", label = "{idx: 0002D030 | value: tall | left: 0002D000 | right: 0002D150 | parent: 00000000}"];
 	node5 -> node7 [color = "#ccff99"]
-	node8 [shape = Mrecord, style = filled, fillcolor = "#ccff99", label = "{idx: 0118D020 | value: grass | left: 00000000 | right: 00000000 | parent: 00000000}"];
-	node4 -> node8 [color = "#ccff99"]
-	label = "tree_dump from function main, Tree/main.cpp:10";}
+	node8 [shape = Mrecord, style = filled, fillcolor = "#00BFFF", label = "{idx: 0002D000 | value: giraffe | left: 00000000 | right: 00000000 | parent: 00000000}"];
+	node7 -> node8 [color = "#00BFFF"]
+	node9 [shape = Mrecord, style = filled, fillcolor = "#ccff99", label = "{idx: 0002D150 | value: frog | left: 00000000 | right: 00000000 | parent: 00000000}"];
+	node7 -> node9 [color = "#ccff99"]
+	node10 [shape = Mrecord, style = filled, fillcolor = "#ccff99", label = "{idx: 0002D018 | value: big | left: 0002D0F0 | right: 0002D5D0 | parent: 00000000}"];
+	node4 -> node10 [color = "#ccff99"]
+	node11 [shape = Mrecord, style = filled, fillcolor = "#00BFFF", label = "{idx: 0002D0F0 | value: fly | left: 0002D048 | right: 0002D060 | parent: 00000000}"];
+	node10 -> node11 [color = "#00BFFF"]
+	node12 [shape = Mrecord, style = filled, fillcolor = "#00BFFF", label = "{idx: 0002D048 | value: rocket | left: 00000000 | right: 00000000 | parent: 00000000}"];
+	node11 -> node12 [color = "#00BFFF"]
+	node13 [shape = Mrecord, style = filled, fillcolor = "#ccff99", label = "{idx: 0002D060 | value: drive | left: 0002D480 | right: 0002D5B8 | parent: 00000000}"];
+	node11 -> node13 [color = "#ccff99"]
+	node14 [shape = Mrecord, style = filled, fillcolor = "#00BFFF", label = "{idx: 0002D480 | value: car | left: 00000000 | right: 00000000 | parent: 00000000}"];
+	node13 -> node14 [color = "#00BFFF"]
+	node15 [shape = Mrecord, style = filled, fillcolor = "#ccff99", label = "{idx: 0002D5B8 | value: house | left: 00000000 | right: 00000000 | parent: 00000000}"];
+	node13 -> node15 [color = "#ccff99"]
+	node16 [shape = Mrecord, style = filled, fillcolor = "#ccff99", label = "{idx: 0002D5D0 | value: thin | left: 0002D420 | right: 0002D648 | parent: 00000000}"];
+	node10 -> node16 [color = "#ccff99"]
+	node17 [shape = Mrecord, style = filled, fillcolor = "#00BFFF", label = "{idx: 0002D420 | value: paper | left: 00000000 | right: 00000000 | parent: 00000000}"];
+	node16 -> node17 [color = "#00BFFF"]
+	node18 [shape = Mrecord, style = filled, fillcolor = "#ccff99", label = "{idx: 0002D648 | value: grass | left: 00000000 | right: 00000000 | parent: 00000000}"];
+	node16 -> node18 [color = "#ccff99"]
+	label = "tree_dump from function print_database, Tree/akin.cpp:313";}
 

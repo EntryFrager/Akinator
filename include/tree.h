@@ -18,14 +18,13 @@
         tree_dump_graph_viz (tree, __FILE__, __func__, __LINE__);               \
     }
 
-    static int CODE_ERROR = 0;
-
     #define assert_tree(tree)                                                                   \
     {                                                                                           \
-        if ((CODE_ERROR = (tree_verificator (tree) | node_verificator (tree->root))) != ERR_NO) \
+        int code_error = 0;                                                                     \
+        if ((code_error = (tree_verificator (tree) | node_verificator (tree->root))) != ERR_NO) \
         {                                                                                       \
-            CALL_DUMP(tree, CODE_ERROR)                                                         \
-            return CODE_ERROR;                                                                  \
+            CALL_DUMP(tree, code_error)                                                         \
+            return code_error;                                                                  \
         }                                                                                       \
     }
 #else
@@ -35,7 +34,9 @@
 
 const bool LEFT  = false;
 const bool RIGHT = true;
-const int VALUE_VENOM = -10000;
+
+const bool INIT = true;
+const bool INIT_NOT = false;
 
 typedef struct NODE{
     NODE *left   = NULL;
@@ -54,10 +55,10 @@ typedef struct {
     char *buf = NULL;
 
 #ifdef DEBUG
-    char *fp_dump_text_name = NULL;
-    char *fp_dot_name       = NULL;
-    char *fp_name_html      = NULL;
-    char *fp_image          = NULL;
+    const char *fp_dump_text_name = NULL;
+    const char *fp_dot_name       = NULL;
+    const char *fp_name_html      = NULL;
+    const char *fp_image          = NULL;
 
     FILE *fp_html_dot = NULL;
 #endif
@@ -83,7 +84,7 @@ int add_node (NODE *node, const char *value, const bool side);
 
 int delete_node (NODE *node);
 
-int print_tree (TREE *tree, NODE *node, FILE *stream);
+int print_tree (NODE *node, FILE *stream);
 
 int destroy_tree (TREE *tree);
 
