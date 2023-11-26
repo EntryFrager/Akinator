@@ -78,7 +78,7 @@ NODE *create_node (const char *value, NODE *left, NODE *right, NODE *parent);
 
 int input_base (TREE *tree);
 
-NODE *split_node (TREE *tree, NODE *node);
+NODE *split_node (TREE *tree, NODE *node, NODE *parent);
 
 int add_node (NODE *node, const char *value, const bool side);
 

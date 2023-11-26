@@ -11,11 +11,13 @@
  * @param[in] expr Expression
 */
 
-#define DEBUG
+//#define DEBUG
 
 #ifdef DEBUG
-    #define CHECK_ERROR_PRINT(func) if ((code_error = func) != ERR_NO) my_strerr (code_error, stderr);
-    #define CHECK_ERROR_RETURN(func) if ((code_error = func) != ERR_NO) return code_error;
+    size_t CODE_ERROR = 0;
+    #define CHECK_ERROR_PRINT(func) if (CODE_ERROR != ERR_NO) my_strerr (CODE_ERROR, stderr);
+
+    #define CHECK_ERROR_RETURN(func) CODE_ERROR |= func; 
 #else
     #define CHECK_ERROR_PRINT(func) func
     #define CHECK_ERROR_RETURN(func) func

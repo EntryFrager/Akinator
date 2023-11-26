@@ -80,14 +80,14 @@ int input_base (TREE *tree)
         return ERR_FCLOSE;
     }
 
-    tree->root = split_node (tree, NULL);
+    tree->root = split_node (tree, NULL, NULL);
 
     assert_tree (tree);
 
     return ERR_NO;
 }
 
-NODE *split_node (TREE *tree, NODE *node)
+NODE *split_node (TREE *tree, NODE *node, NODE *parent)
 {
     while (isspace (*tree->info.buf) != 0)
     {
@@ -119,16 +119,16 @@ NODE *split_node (TREE *tree, NODE *node)
     
     *(tree->info.buf++) = '\0';
 
-    node = create_node (value, NULL, NULL, node);
+    node = create_node (value, NULL, NULL, parent);
 
-    node->left = split_node (tree, node->left);
+    node->left = split_node (tree, node->left, node);
 
     while (*tree->info.buf == ')' || isspace (*tree->info.buf) != 0)
     {
         tree->info.buf++;
     }
 
-    node->right = split_node (tree, node->right);
+    node->right = split_node (tree, node->right, node);
 
     return node;
 }

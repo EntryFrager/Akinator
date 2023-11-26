@@ -19,6 +19,15 @@ const ELEMENT NO = 0;
 const size_t STR_SIZE = 100;
 const size_t STACK_SIZE = 10;
 
+enum cmd_code {
+    GUESS = 1,
+    DEFIN,
+    COMPARE,
+    GET_BASE,
+    EXIT_SAVE,
+    EXIT_NO_SAVE
+};
+
 int game_run ();
 
 #endif //AKIN_H

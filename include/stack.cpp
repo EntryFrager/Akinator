@@ -201,6 +201,8 @@ int stack_realloc (STACK *stk, const int type_mode)
               stk->hash_struct = hash_control_struct (stk));
 
     assert_stack (stk);
+
+    return ERR_NO;
 }
 
 #ifdef HASH_CHECK
@@ -408,14 +410,14 @@ void stack_dump (STACK *stk, const int code_error, const char *file_err, const c
             {
                 for (int i = 0; i < stk->size; i++)
                 {
-                    fprintf (fp_err, "\t\t*[%d] = %lf\n", i, stk->data[i]);
+                    fprintf (fp_err, "\t\t*[%d] = %d\n", i, stk->data[i]);
                 }
             }
             else if (stk->position > 0)
             {
                 for (int i = 0; i < stk->position; i++)
                 {
-                    fprintf (fp_err, "\t\t*[%d] = %lf\n", i, stk->data[i]);
+                    fprintf (fp_err, "\t\t*[%d] = %d\n", i, stk->data[i]);
                 }
             }
 
