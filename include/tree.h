@@ -9,6 +9,14 @@
 #include "error.h"
 #include "utils.h"
 
+#define BLUE_COLOR "\"#00BFFF\""
+#define PURPLE_COLOR "\"#8B00FF\""
+#define RED_COLOR "\"#ff0000\""
+#define LIGHT_GREEN_COLOR "\"#ccff99\""
+#define BACK_GROUND_COLOR "\"#696969\""
+
+#define FONTNAME "\"Times-New-Roman\""
+
 #define DEBUG
 
 #ifdef DEBUG

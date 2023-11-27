@@ -12,6 +12,8 @@ static void print_determ_object (NODE *node, const char *defined_word, STACK *st
 static NODE *print_part_determ (NODE *node, STACK *stack);
 static void print_compare_determ (NODE *node, const char *object_1, const char *object_2, \
                                   STACK *stack_1, STACK *stack_2);
+static void base_dump (TREE *tree);
+static int create_node (NODE *node, FILE *stream, int ip_parent, int ip, char *color);
 static void check_answer (char *answer);
 
 int game_run ()
@@ -218,7 +220,7 @@ void print_database (TREE *tree)
 {
     my_assert (tree != NULL);
 
-    tree_dump_graph_viz (tree, __FILE__, __func__, __LINE__);
+    base_dump (tree);
     system ("dot.svg");
 }
 
@@ -369,6 +371,73 @@ void print_compare_determ (NODE *node, const char *object_1, const char *object_
     print_determ_object (node_1, object_1, stack_1);
     printf ("\t");
     print_determ_object (node_2, object_2, stack_2);
+}
+
+#define DUMP_DOT(str) fprintf (fp_dot, str "\n");
+#define DUMP_DOT_PARAM(str, ...) fprintf (fp_dot, str "\n", __VA_ARGS__);
+
+void base_dump (TREE *tree)
+{
+    FILE *fp_dot = fopen (tree->info.fp_dot_name, "w+");
+
+    if (fp_dot == NULL)
+    {
+        my_strerr (ERR_FOPEN, stderr);
+    }
+    else
+    {
+        if (tree != NULL)
+        {
+            DUMP_DOT ("digraph List {");
+            DUMP_DOT ("\trankdir = HR;");
+            DUMP_DOT ("\tbgcolor = " BACK_GROUND_COLOR ";");
+
+            if (tree->root != NULL)
+            {
+                create_node (tree->root, fp_dot, -1, 0, RED_COLOR);
+            }
+
+            DUMP_DOT ("}");
+        }
+    }
+
+    if (fclose (fp_dot) != 0)
+    {
+        my_strerr (ERR_FCLOSE, stderr);
+    }
+
+    char *command = "dot -Tsvg include/dump.dot -o dot.svg";
+
+    system (command);
+
+    tree_dump_html (tree);
+}
+
+#undef DUMP_DOT
+#undef DUMP_DOT_PARAM
+
+int create_node (NODE *node, FILE *stream, int ip_parent, int ip, char *color)
+{
+    if (!node)
+    {
+        return ip - 1;
+    }
+
+    fprintf (stream, "\tnode%d [shape = Mrecord, style = filled, fillcolor = %s, "
+             "label = \"{idx: %p | value: %s | left: %p | right: %p | parent: %p}\"];\n",
+             ip, color, node, node->value, node->left, node->right, node->parent);
+
+    if (ip > 0)
+    {
+        fprintf (stream, "\tnode%d -> node%d [color = %s]\n", ip_parent, ip, color);
+    }
+
+    ip_parent = ip;
+
+    ip = create_node (node->left, stream, ip_parent, ip + 1, BLUE_COLOR);
+    ip = create_node (node->right, stream, ip_parent, ip + 1, LIGHT_GREEN_COLOR);
+
+    return ip;
 }
 
 void check_answer (char *answer)

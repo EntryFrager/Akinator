@@ -1,42 +1,41 @@
 digraph List {
 	rankdir = HR;
 	bgcolor = "#696969";
-	node0 [shape = Mrecord, style = filled, fillcolor = "#ff0000", label = "{idx: 02985BA8 | value: yellow | left: 02985D58 | right: 02985CB0 | parent: 00000000}"];
-	node1 [shape = Mrecord, style = filled, fillcolor = "#00BFFF", label = "{idx: 02985D58 | value: worn on a belt | left: 02985BD8 | right: 02985C38 | parent: 02985BA8}"];
+	node0 [shape = Mrecord, style = filled, fillcolor = "#ff0000", label = "{idx: 02845CC0 | value: yellow | left: 02845CD8 | right: 02845C48 | parent: 00000000}"];
+	node1 [shape = Mrecord, style = filled, fillcolor = "#00BFFF", label = "{idx: 02845CD8 | value: worn on a belt | left: 02845D08 | right: 02845BB8 | parent: 02845CC0}"];
 	node0 -> node1 [color = "#00BFFF"]
-	node2 [shape = Mrecord, style = filled, fillcolor = "#00BFFF", label = "{idx: 02985BD8 | value: judo belt | left: 00000000 | right: 00000000 | parent: 02985D58}"];
+	node2 [shape = Mrecord, style = filled, fillcolor = "#00BFFF", label = "{idx: 02845D08 | value: judo belt | left: 00000000 | right: 00000000 | parent: 02845CD8}"];
 	node1 -> node2 [color = "#00BFFF"]
-	node3 [shape = Mrecord, style = filled, fillcolor = "#ccff99", label = "{idx: 02985C38 | value: sun | left: 00000000 | right: 00000000 | parent: 02985D58}"];
+	node3 [shape = Mrecord, style = filled, fillcolor = "#ccff99", label = "{idx: 02845BB8 | value: sun | left: 00000000 | right: 00000000 | parent: 02845CD8}"];
 	node1 -> node3 [color = "#ccff99"]
-	node4 [shape = Mrecord, style = filled, fillcolor = "#ccff99", label = "{idx: 02985CB0 | value: alive | left: 02985BF0 | right: 02985C68 | parent: 02985BA8}"];
+	node4 [shape = Mrecord, style = filled, fillcolor = "#ccff99", label = "{idx: 02845C48 | value: alive | left: 02845C60 | right: 02845BE8 | parent: 02845CC0}"];
 	node0 -> node4 [color = "#ccff99"]
-	node5 [shape = Mrecord, style = filled, fillcolor = "#00BFFF", label = "{idx: 02985BF0 | value: grey | left: 02985D10 | right: 02985C50 | parent: 02985CB0}"];
+	node5 [shape = Mrecord, style = filled, fillcolor = "#00BFFF", label = "{idx: 02845C60 | value: grey | left: 02845D20 | right: 02845BD0 | parent: 02845C48}"];
 	node4 -> node5 [color = "#00BFFF"]
-	node6 [shape = Mrecord, style = filled, fillcolor = "#00BFFF", label = "{idx: 02985D10 | value: mouse | left: 00000000 | right: 00000000 | parent: 02985BF0}"];
+	node6 [shape = Mrecord, style = filled, fillcolor = "#00BFFF", label = "{idx: 02845D20 | value: mouse | left: 00000000 | right: 00000000 | parent: 02845C60}"];
 	node5 -> node6 [color = "#00BFFF"]
-	node7 [shape = Mrecord, style = filled, fillcolor = "#ccff99", label = "{idx: 02985C50 | value: tall | left: 02985CF8 | right: 02985D28 | parent: 02985BF0}"];
+	node7 [shape = Mrecord, style = filled, fillcolor = "#ccff99", label = "{idx: 02845BD0 | value: tall | left: 02845D38 | right: 02845D50 | parent: 02845C60}"];
 	node5 -> node7 [color = "#ccff99"]
-	node8 [shape = Mrecord, style = filled, fillcolor = "#00BFFF", label = "{idx: 02985CF8 | value: giraffe | left: 00000000 | right: 00000000 | parent: 02985C50}"];
+	node8 [shape = Mrecord, style = filled, fillcolor = "#00BFFF", label = "{idx: 02845D38 | value: giraffe | left: 00000000 | right: 00000000 | parent: 02845BD0}"];
 	node7 -> node8 [color = "#00BFFF"]
-	node9 [shape = Mrecord, style = filled, fillcolor = "#ccff99", label = "{idx: 02985D28 | value: frog | left: 00000000 | right: 00000000 | parent: 02985C50}"];
+	node9 [shape = Mrecord, style = filled, fillcolor = "#ccff99", label = "{idx: 02845D50 | value: frog | left: 00000000 | right: 00000000 | parent: 02845BD0}"];
 	node7 -> node9 [color = "#ccff99"]
-	node10 [shape = Mrecord, style = filled, fillcolor = "#ccff99", label = "{idx: 02985C68 | value: big | left: 02985C98 | right: 011DC168 | parent: 02985CB0}"];
+	node10 [shape = Mrecord, style = filled, fillcolor = "#ccff99", label = "{idx: 02845BE8 | value: big | left: 02845C00 | right: 0109C248 | parent: 02845C48}"];
 	node4 -> node10 [color = "#ccff99"]
-	node11 [shape = Mrecord, style = filled, fillcolor = "#00BFFF", label = "{idx: 02985C98 | value: fly | left: 02985CC8 | right: 011DC120 | parent: 02985C68}"];
+	node11 [shape = Mrecord, style = filled, fillcolor = "#00BFFF", label = "{idx: 02845C00 | value: fly | left: 02845D68 | right: 0109C170 | parent: 02845BE8}"];
 	node10 -> node11 [color = "#00BFFF"]
-	node12 [shape = Mrecord, style = filled, fillcolor = "#00BFFF", label = "{idx: 02985CC8 | value: rocket | left: 00000000 | right: 00000000 | parent: 02985C98}"];
+	node12 [shape = Mrecord, style = filled, fillcolor = "#00BFFF", label = "{idx: 02845D68 | value: rocket | left: 00000000 | right: 00000000 | parent: 02845C00}"];
 	node11 -> node12 [color = "#00BFFF"]
-	node13 [shape = Mrecord, style = filled, fillcolor = "#ccff99", label = "{idx: 011DC120 | value: drive | left: 011DBFD0 | right: 011DC258 | parent: 02985C98}"];
+	node13 [shape = Mrecord, style = filled, fillcolor = "#ccff99", label = "{idx: 0109C170 | value: drive | left: 0109C200 | right: 0109C0B0 | parent: 02845C00}"];
 	node11 -> node13 [color = "#ccff99"]
-	node14 [shape = Mrecord, style = filled, fillcolor = "#00BFFF", label = "{idx: 011DBFD0 | value: car | left: 00000000 | right: 00000000 | parent: 011DC120}"];
+	node14 [shape = Mrecord, style = filled, fillcolor = "#00BFFF", label = "{idx: 0109C200 | value: car | left: 00000000 | right: 00000000 | parent: 0109C170}"];
 	node13 -> node14 [color = "#00BFFF"]
-	node15 [shape = Mrecord, style = filled, fillcolor = "#ccff99", label = "{idx: 011DC258 | value: house | left: 00000000 | right: 00000000 | parent: 011DC120}"];
+	node15 [shape = Mrecord, style = filled, fillcolor = "#ccff99", label = "{idx: 0109C0B0 | value: house | left: 00000000 | right: 00000000 | parent: 0109C170}"];
 	node13 -> node15 [color = "#ccff99"]
-	node16 [shape = Mrecord, style = filled, fillcolor = "#ccff99", label = "{idx: 011DC168 | value: thin | left: 011DC270 | right: 011DC048 | parent: 02985C68}"];
+	node16 [shape = Mrecord, style = filled, fillcolor = "#ccff99", label = "{idx: 0109C248 | value: thin | left: 0109C278 | right: 0109C1A0 | parent: 02845BE8}"];
 	node10 -> node16 [color = "#ccff99"]
-	node17 [shape = Mrecord, style = filled, fillcolor = "#00BFFF", label = "{idx: 011DC270 | value: paper | left: 00000000 | right: 00000000 | parent: 011DC168}"];
+	node17 [shape = Mrecord, style = filled, fillcolor = "#00BFFF", label = "{idx: 0109C278 | value: paper | left: 00000000 | right: 00000000 | parent: 0109C248}"];
 	node16 -> node17 [color = "#00BFFF"]
-	node18 [shape = Mrecord, style = filled, fillcolor = "#ccff99", label = "{idx: 011DC048 | value: grass | left: 00000000 | right: 00000000 | parent: 011DC168}"];
+	node18 [shape = Mrecord, style = filled, fillcolor = "#ccff99", label = "{idx: 0109C1A0 | value: grass | left: 00000000 | right: 00000000 | parent: 0109C248}"];
 	node16 -> node18 [color = "#ccff99"]
-	label = "tree_dump from function print_database, Tree/akin.cpp:214";}
-
+}
